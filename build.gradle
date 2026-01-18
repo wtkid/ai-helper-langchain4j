@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.3'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.wt'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaLanguageVersion.of(21)
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    
+    // LangChain4j dependencies
+    implementation 'dev.langchain4j:langchain4j-community-dashscope-spring-boot-starter:1.1.0-beta7'
+    implementation 'dev.langchain4j:langchain4j:1.1.0'
+    implementation 'dev.langchain4j:langchain4j-spring-boot-starter:1.1.0-beta7'
+    implementation 'dev.langchain4j:langchain4j-mcp:1.1.0-beta7'
+    implementation 'dev.langchain4j:langchain4j-reactor:1.1.0-beta7'
+    
+    // JSoup
+    implementation 'org.jsoup:jsoup:1.20.1'
+    
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    
+    // Test dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
