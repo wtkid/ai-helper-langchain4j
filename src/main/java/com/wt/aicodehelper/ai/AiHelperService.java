@@ -7,7 +7,7 @@ import reactor.core.publisher.Flux;
 
 import java.util.List;
 
-@InputGuardrails({SafeInputGuardrail.class})
+//@InputGuardrails({SafeInputGuardrail.class})
 public interface AiHelperService {
 
     @SystemMessage(fromResource = "system-prompt.txt")

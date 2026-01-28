@@ -7,15 +7,49 @@ server:
   port: 8081
   servlet:
     context-path: /api
+
+## 本地大模型
+## 本地是 DMR 部署，使用兼容的openai接口对接，原因如下：
+##   1. 虽然兼容ollama，但是流式输出有问题
+##   2. DMR embedding模型的api不兼容ollama
 langchain4j:
-  community:
-    dashscope:
-      chat-model:
-        model-name: qwen-max
-        api-key: <Your API Key>
-      streaming-chat-model:
-        model-name: qwen-max
-        api-key: <Your API Key>
-      embedding-model:
-        model-name: text-embedding-v4
-        api-key: <Your API Key>
+  open-ai:
+    chat-model:
+      base-url: http://192.168.2.14:12434/engines/v1
+      model-name: qwen3:0.6B-Q4_K_M
+      api-key: xxx
+    streaming-chat-model:
+      base-url: http://192.168.2.14:12434/engines/v1
+      model-name: qwen3:0.6B-Q4_K_M
+      api-key: xxx
+    embedding-model:
+      base-url: http://192.168.2.14:12434/engines/v1
+      model-name: qwen3-embedding:0.6B-F16
+      api-key: xxx
+
+## 对接 ollama 的配置
+##  DMR embedding模型的api不兼容ollama
+#langchain4j:
+#  ollama:
+#    chat-model:
+#      base-url: http://192.168.2.14:12434
+#      model-name: qwen3:0.6B-Q4_K_M
+#      api-key: xxx
+#    streaming-chat-model:
+#      base-url: http://192.168.2.14:12434
+#      model-name: qwen3:0.6B-Q4_K_M
+
+
+## 对接千问官方
+#langchain4j:
+#  community:
+#    dashscope:
+#      chat-model:
+#        model-name: qwen-max
+#        api-key: xx
+#      streaming-chat-model:
+#        model-name: qwen-max
+#        api-key: xx
+#      embedding-model:
+#        model-name: text-embedding-v4
+#        api-key: xx

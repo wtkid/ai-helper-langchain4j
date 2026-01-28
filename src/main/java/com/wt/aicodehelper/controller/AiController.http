@@ -1,4 +1,4 @@
-GET http://localhost:8081/api/ai/chat1?memoryId=1&message=你好，我是小王,帮我在msyql的数据库aaa下创建一个person表，并把我的信息插入进去
+GET http://localhost:8081/api/ai/chat1?memoryId=1&message=小王是谁
 
 ###
 GET http://localhost:8081/api/ai/chat1?memoryId=1&message=那你帮我查询一下aaa.aaa这张表里面的内容

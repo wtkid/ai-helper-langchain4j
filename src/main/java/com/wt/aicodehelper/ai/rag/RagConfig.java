@@ -22,7 +22,7 @@ import java.util.List;
 public class RagConfig {
 
     @Resource
-    private EmbeddingModel qwenEmbeddingModel;
+    private EmbeddingModel embeddingModel;
 
     @Resource
     private EmbeddingStore<TextSegment> embeddingStore;
@@ -43,7 +43,7 @@ public class RagConfig {
                         textSegment.metadata()
                 ))
                 // 使用指定的向量模型
-                .embeddingModel(qwenEmbeddingModel)
+                .embeddingModel(embeddingModel)
                 .embeddingStore(embeddingStore)
                 .build();
         // 加载文档
@@ -51,7 +51,7 @@ public class RagConfig {
         // 4. 自定义内容查询器
         ContentRetriever contentRetriever = EmbeddingStoreContentRetriever.builder()
                 .embeddingStore(embeddingStore)
-                .embeddingModel(qwenEmbeddingModel)
+                .embeddingModel(embeddingModel)
                 .maxResults(5) // 最多 5 个检索结果
                 .minScore(0.75) // 过滤掉分数小于 0.75 的结果
                 .build();

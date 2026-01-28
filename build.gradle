@@ -23,9 +23,12 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    
-    // LangChain4j dependencies
-    implementation 'dev.langchain4j:langchain4j-community-dashscope-spring-boot-starter:1.1.0-beta7'
+
+    // 阿里千问官方
+//    implementation 'dev.langchain4j:langchain4j-community-dashscope-spring-boot-starter:1.1.0-beta7'
+    // 本地大模型接入，DMR 部署
+//    implementation 'dev.langchain4j:langchain4j-ollama-spring-boot-starter:1.1.0-beta7'
+    implementation 'dev.langchain4j:langchain4j-open-ai-spring-boot-starter:1.1.0-beta7'
     implementation 'dev.langchain4j:langchain4j:1.1.0'
     implementation 'dev.langchain4j:langchain4j-spring-boot-starter:1.1.0-beta7'
     implementation 'dev.langchain4j:langchain4j-mcp:1.1.0-beta7'

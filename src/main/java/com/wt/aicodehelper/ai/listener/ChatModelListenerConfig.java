@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class ChatModelListenerConfig {
     
     @Bean
-    ChatModelListener chatModelListener() {
+    public ChatModelListener chatModelListener() {
         return new ChatModelListener() {
             @Override
             public void onRequest(ChatModelRequestContext requestContext) {
